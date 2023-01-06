@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../styles/AddCategory.css';
 
 export const AddCategory = ({ onNewCategory }) => {
 	const [inputValue, setinputValue] = useState('');

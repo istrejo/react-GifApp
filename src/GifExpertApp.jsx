@@ -1,14 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
-import { AddCategory } from './components/AddCategory';
-import { GifGrid } from './components/GifGrid';
+import { AddCategory, GifGrid, Header } from './components';
 
 export const GifExpertApp = () => {
-	const [categories, setCategories] = useState(['One Punch', 'DBZ']);
+	const [categories, setCategories] = useState(['One Punch']);
 
 	const onAddCategory = newCategory => {
-		console.log(newCategory);
-
 		if (categories.includes(newCategory)) return;
 
 		setCategories([newCategory, ...categories]);
@@ -16,12 +13,9 @@ export const GifExpertApp = () => {
 
 	return (
 		<>
-			<h1>GifExpertApp</h1>
+			<Header />
 
-			<AddCategory
-				onNewCategory={value => onAddCategory(value)}
-				// setCategories={setCategories}
-			/>
+			<AddCategory onNewCategory={value => onAddCategory(value)} />
 
 			{categories.map(category => (
 				<GifGrid category={category} key={category} />
